@@ -7,6 +7,7 @@ use App\Http\Livewire\ChackoutComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Contactus;
+use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\HomeComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -27,10 +28,11 @@ Route::get('/', function () {
 
 Route::get('/', HomeComponent::class);
 Route::get('/shop', ShopComponent::class);
-Route::get('/cart', CartComponent::class);
+Route::get('/cart', CartComponent::class)->name('product.cart');
 Route::get('/chackout', ChackoutComponent::class);
 Route::get('/aboutus', Aboutus::class);
 Route::get('/contactus', Contactus::class);
+Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 
 
 //for user/customer
