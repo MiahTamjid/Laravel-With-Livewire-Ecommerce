@@ -6,6 +6,7 @@ use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\ChackoutComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
+use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\Contactus;
 use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\HomeComponent;
@@ -33,6 +34,7 @@ Route::get('/chackout', ChackoutComponent::class);
 Route::get('/aboutus', Aboutus::class);
 Route::get('/contactus', Contactus::class);
 Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
+Route::get('/product-category/{category_slug}', CategoryComponent::class)->name('product.category');
 
 
 //for user/customer
