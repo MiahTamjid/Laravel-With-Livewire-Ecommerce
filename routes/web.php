@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Aboutus;
+use App\Http\Livewire\Admin\AdminCategoryComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\ChackoutComponent;
@@ -46,5 +47,6 @@ Route::middleware(['auth:sanctum','verified'])->group(function(){
 //for admin
 Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
     Route::get('/admin/dashboard',AdminDashboardComponent::class)->name('admin.dashboard');
+    Route::get('/admin/categories',AdminCategoryComponent::class)->name('admin.categories');
 });
 

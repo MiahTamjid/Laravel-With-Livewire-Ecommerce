@@ -82,6 +82,7 @@
                     "li",
                     function (event) {
                         var _this = $(this),
+                            //Search Product
                             //_value 	 = _this.attr('value'),
                             _value = _this.text(),
                             _content = _this.text(),
