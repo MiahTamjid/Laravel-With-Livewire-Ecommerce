@@ -9,6 +9,7 @@ use App\Http\Livewire\ChackoutComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminEditCategoryComponent;
+use App\Http\Livewire\Admin\AdminProductComponent;
 use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\Contactus;
 use App\Http\Livewire\DetailsComponent;
@@ -52,5 +53,7 @@ Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
     Route::get('/admin/categories',AdminCategoryComponent::class)->name('admin.categories');
     Route::get('/admin/category/add',AdminAddCategoryComponent::class)->name('admin.addcategories');
     Route::get('/admin/category/edit{category_slug}',AdminEditCategoryComponent::class)->name('admin.editcategories');
+    Route::get('/admin/products',AdminProductComponent::class)->name('admin.products');
+
 });
 
