@@ -6,7 +6,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                Add new Category
+                                Edit Category
                             </div>
                             <div class="col-md-6">
                                 <a href="{{ route('admin.categories') }}" class="btn btn-success pull-right">All Category</a>
@@ -19,7 +19,7 @@
                         <div class="alert alert-success" role="alertsuccess_message">{{ Session::get('success_message') }}</div>
                             
                         @endif
-                        <form action="" class="from-horizontal" wire:submit.prevent="storeCategory">
+                        <form action="" class="from-horizontal" wire:submit.prevent="updateCategory">
                             <div class="form-group">
                                 <label class="col-md-6 control-label" style="padding-left: 400px">Catagory Name: </label>
                                 <div class="col-md-4" style="padding-bottom: 10px">
@@ -37,7 +37,7 @@
                             <div class="form-group">
                                 <label class="col-md-6 control-label"></label>
                                 <div class="col-md-4" style="padding-top: 10px">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Update</button>
                                 </div>
                             </div>
                         </form>

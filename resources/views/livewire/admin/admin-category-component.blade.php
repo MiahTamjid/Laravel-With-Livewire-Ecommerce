@@ -11,12 +11,14 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
+                    <div class="panel-heading">
                     <div class="row">
                         <div class="col-md-6">All Category</div>
                         <div class="col-md-6">
                             <a href="{{ route('admin.addcategories') }}" class="btn btn-success pull-right">Add New</a>
                         </div>
                     </div>
+                </div>
                     <div class="panel-body">
                         <table class="table table-hover" >
                             <thead>
@@ -33,7 +35,11 @@
                                     <th scope="row">{{ $category->id }}</th>
                                     <td>{{ $category->name }}</td>
                                     <td>{{ $category->slug }}</td>
-                                    <td></td>
+                                    <td>
+                                        <a href="{{ route('admin.editcategories',['category_slug'=>$category->slug]) }}">
+                                        <i class="fa fa-edit" style="font-size: 25px;"></i>
+                                        </a>
+                                    </td>
                                   </tr>
                                 @endforeach
                             </tbody>
