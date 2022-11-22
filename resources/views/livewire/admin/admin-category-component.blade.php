@@ -20,6 +20,10 @@
                     </div>
                 </div>
                     <div class="panel-body">
+                        @if (Session::has('success_message'))
+                        <div class="alert alert-success" role="alertsuccess_message">{{ Session::get('success_message') }}</div>
+                            
+                        @endif
                         <table class="table table-hover" >
                             <thead>
                               <tr>
@@ -39,6 +43,7 @@
                                         <a href="{{ route('admin.editcategories',['category_slug'=>$category->slug]) }}">
                                         <i class="fa fa-edit" style="font-size: 25px;"></i>
                                         </a>
+                                        <a href="" wire:click.prevent="deleteCategory({{ $category->id }})" style="margin-left: 10px"><i class="fa fa-times fa-2x text-danger"></i></a>
                                     </td>
                                   </tr>
                                 @endforeach
