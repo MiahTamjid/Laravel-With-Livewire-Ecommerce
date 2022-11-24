@@ -22,6 +22,10 @@
                     </div>
                     </div>
                     <div class="panel-body">
+                        @if (Session::has('success_message'))
+                        <div class="alert alert-success" role="alertsuccess_message">{{ Session::get('success_message') }}</div>
+                            
+                        @endif
                         <table class="table table-hover" >
                             <thead>
                               <tr>
