@@ -34,6 +34,7 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Stock</th>
                                 <th scope="col">Price</th>
+                                <th scope="col">Sale Price</th>
                                 <th scope="col">Category</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Action</th>
@@ -49,6 +50,7 @@
                                     <td>{{ $product->name }}</td>
                                     <td>{{ $product->stock_status }}</td>
                                     <td>{{ $product->regular_price }}</td>
+                                    <td>{{ $product->sale_price }}</td>
                                     <td>{{ $product->category->name }}</td>
                                     <td>{{ $product->created_at }}</td>
                                     <td>
