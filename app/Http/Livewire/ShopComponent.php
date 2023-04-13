@@ -10,6 +10,9 @@ use Livewire\WithPagination;
 class ShopComponent extends Component
 {
     public $sorting, $pagesize;
+    public $min_price=1;
+    public $max_price=1000;
+
     public function mount()
     {
         $this->sorting = "default";
@@ -25,25 +28,25 @@ class ShopComponent extends Component
     use WithPagination;
     public function render()
     {
-        if($this->sorting=='date')
+        if($this->sorting=='date')   
         {
-            $products = Product::orderBy('created_at','DESC')->paginate($this->pagesize);
+            $products = Product::whereBetween('regular_price',[$this->min_price,$this->max_price])->orderBy('created_at','DESC')->paginate($this->pagesize);  
         }
-        elseif($this->sorting=='price')
+        else if($this->sorting=="price")
         {
-            $products = Product::orderBy('regular_price','ASC')->paginate($this->pagesize);
+            $products = Product::whereBetween('regular_price',[$this->min_price,$this->max_price])->orderBy('regular_price','ASC')->paginate($this->pagesize); 
         }
-        elseif($this->sorting=='price-desc')
+        else if($this->sorting=="price-desc")
         {
-            $products = Product::orderBy('regular_price','DESC')->paginate($this->pagesize);
+            $products = Product::whereBetween('regular_price',[$this->min_price,$this->max_price])->orderBy('regular_price','DESC')->paginate($this->pagesize); 
         }
-        else
-        {
-            $products = Product::paginate($this->pagesize); 
-        }
-        $catagories = Catagory::all();
-
-        return view('livewire.shop-component',['products'=> $products,'catagories'=> $catagories,])->layout('layouts.base');
+        else{
+            $products = Product::whereBetween('regular_price',[$this->min_price,$this->max_price])->paginate($this->pagesize);  
+        }   
+        
+        $catagories = Catagory::all();  
+        
+        return view('livewire.shop-component',['products'=> $products,'catagories'=>$catagories])->layout("layouts.base");
     }
     
 }
