@@ -19,28 +19,31 @@
                         <div class="alert alert-success" role="alertsuccess_message">{{ Session::get('success_message') }}</div>
                             
                         @endif
-                        <form action="" class="from-horizontal" wire:submit.prevent="storeCategory">
+                        <form class="form-horizontal" wire:submit.prevent="storeCategory">
                             <div class="form-group">
-                                <label class="col-md-6 control-label" style="padding-left: 400px">Catagory Name: </label>
-                                <div class="col-md-4" style="padding-bottom: 10px">
-                                    <input type="text" placeholder="Category Name" class="form-control input-md" wire:model="name" wire:keyup="generateslug">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-md-6 control-label" style="padding-left: 400px">Catagory Slug: </label>
+                                <label class="col-md-4 control-label">Category Name</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Category Slug" class="form-control input-md" wire:model="slug" readonly>
+                                    <input type="text" placeholder="Category Name" class="form-control input-md" wire:model="name" wire:keyup="generateslug" />                                    
+                                    @error('name')  <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
-
+                        
                             <div class="form-group">
-                                <label class="col-md-6 control-label"></label>
-                                <div class="col-md-4" style="padding-top: 10px">
+                                <label class="col-md-4 control-label">Category Slug</label>
+                                <div class="col-md-4">
+                                    <input type="text" placeholder="Category Slug" class="form-control input-md" wire:model="slug" readonly />                                    
+                                    @error('slug')  <p class="text-danger">{{$message}}</p> @enderror
+                                </div>
+                            </div>
+                        
+                            <div class="form-group">
+                                <label class="col-md-4 control-label"></label>
+                                <div class="col-md-4">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>

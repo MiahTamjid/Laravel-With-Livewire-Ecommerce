@@ -13,8 +13,21 @@ class AdminAddCategoryComponent extends Component
     {
         $this->slug = Str::slug($this->name);
     }
+
+    public function updated($fields)
+{
+	$this->validateOnly($fields,[
+		'name' => 'required',
+		'slug' => 'required|unique:catagories'
+	]);
+}
     public function storeCategory()
     {
+        $this->validate([
+            'name' => 'required',
+            'slug' => 'required|unique:catagories'
+        ]); 
+
         $category =new Catagory();
         $category->name = $this->name;
         $category->slug = $this->slug;
