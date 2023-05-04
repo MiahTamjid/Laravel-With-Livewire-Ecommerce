@@ -163,3 +163,31 @@
     </div>
 </div>
 
+@push('scripts')
+    <script>
+        $(function(){
+            tinymce.init({
+                selector:'#short_description',
+                setup:function(editor){
+                    editor.on('Change',function(e){
+                        tinyMCE.triggerSave();
+                        var sd_data = $('#short_description').val();
+                        @this.set('short_description',sd_data);
+                    });
+                }
+            });
+
+            tinymce.init({
+                selector:'#description',
+                setup:function(editor){
+                    editor.on('Change',function(e){
+                        tinyMCE.triggerSave();
+                        var d_data = $('#description').val();
+                        @this.set('description',d_data);
+                    });
+                }
+            });
+        });
+    </script>
+@endpush
+
